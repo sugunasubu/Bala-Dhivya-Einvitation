@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'bamnin_tamil_3';
+  src: url('/assets/fonts/bamnin_tamil_3.ttf') format('truetype'),
+       url('/assets/fonts/Bamini.ttf') format('truetype'),
+       local('bamnin_tamil_3'),
+       local('bamini_tamil_3'),
+       local('Bamini'),
+       local('Baamini'),
+       local('Bamini Plain');
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --name: 'Playfair Display', Georgia, serif;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', Arial, sans-serif;
+    --script: 'Great Vibes', cursive;
+    --cinzel: 'Cinzel', serif;
+    --tamil: 'bamnin_tamil_3', 'Bamini', 'Baamini', 'Kavivanar', 'Anek Tamil', 'Noto Serif Tamil', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+
+  body {
+    background-color: #FFF8F0;
+    color: #48283D;
+    font-family: 'DM Sans', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  body.locked-gate {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Subtle reveal on scroll - Smooth one-by-one text reveal */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay classes for one-by-one text reveal */
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 320ms; }
+.reveal-delay-4 { transition-delay: 440ms; }
+.reveal-delay-5 { transition-delay: 560ms; }
+.reveal-delay-6 { transition-delay: 680ms; }
+.reveal-delay-7 { transition-delay: 800ms; }
+.reveal-delay-8 { transition-delay: 920ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animated-flower-tl,
+  .animated-flower-tr,
+  .animated-flower-bl,
+  .animated-flower-br,
+  .animated-peacock-left,
+  .animated-peacock-right,
+  .animate-ring-rotate,
+  .animate-ring-rotate-reverse,
+  .animate-chain-left,
+  .animate-chain-right {
+    animation: none !important;
+  }
+}
+
+.stroke-dash-custom {
+  stroke-dasharray: 4 7;
+}
+
+/* ========================================================
+   ROTATING EMBLEM RINGS ANIMATION
+   ======================================================== */
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverseSlow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-ring-rotate {
+  will-change: transform;
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-ring-rotate-reverse {
+  will-change: transform;
+  animation: spinReverseSlow 26s linear infinite;
+}
+
+/* ========================================================
+   HANGING CHAIN FLOATING (UP & DOWN) ANIMATION
+   ======================================================== */
+
+@keyframes chainMoveUpDownLeft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+@keyframes chainMoveUpDownRight {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+}
+
+.animate-chain-left {
+  will-change: transform;
+  animation: chainMoveUpDownLeft 4.5s ease-in-out infinite;
+}
+
+.animate-chain-right {
+  will-change: transform;
+  animation: chainMoveUpDownRight 5.2s ease-in-out infinite 0.6s;
+}
+
+/* ========================================================
+   FLOWER BLOOM & SHAKE / SWAY ANIMATIONS
+   ======================================================== */
+
+@keyframes flowerBloomTL {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translate(-40px, -40px) rotate(155deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.05) translate(4px, 4px) rotate(183deg);
+  }
+  85% {
+    transform: scale(0.98) translate(-2px, -2px) rotate(179deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(180deg);
+  }
+}
+
+@keyframes flowerSwayTL {
+  0%, 100% {
+    transform: scale(1) translate(0, 0) rotate(180deg);
+  }
+  20% {
+    transform: scale(1.015) translate(4px, -2px) rotate(183deg);
+  }
+  40% {
+    transform: scale(0.99) translate(-3px, 3px) rotate(177.5deg);
+  }
+  60% {
+    transform: scale(1.02) translate(2px, 3px) rotate(182deg);
+  }
+  80% {
+    transform: scale(0.995) translate(-3px, -1px) rotate(178.5deg);
+  }
+}
+
+@keyframes flowerBloomTR {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translate(40px, -40px) rotate(25deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.05) translate(-4px, 4px) rotate(-3deg);
+  }
+  85% {
+    transform: scale(0.98) translate(2px, -2px) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes flowerSwayTR {
+  0%, 100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.015) translate(-4px, 2px) rotate(-3deg);
+  }
+  40% {
+    transform: scale(0.99) translate(3px, -3px) rotate(2.5deg);
+  }
+  60% {
+    transform: scale(1.02) translate(-2px, -3px) rotate(-2deg);
+  }
+  80% {
+    transform: scale(0.995) translate(3px, 1px) rotate(1.5deg);
+  }
+}
+
+/* Left-Side Bottom Corner (angled upward ~ -35deg into the frame) */
+@keyframes flowerBloomBL {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translate(-40px, 40px) rotate(-55deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.05) translate(4px, -4px) rotate(-32deg);
+  }
+  85% {
+    transform: scale(0.98) translate(-2px, 2px) rotate(-36deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(-35deg);
+  }
+}
+
+@keyframes flowerSwayBL {
+  0%, 100% {
+    transform: scale(1) translate(0, 0) rotate(-35deg);
+  }
+  20% {
+    transform: scale(1.015) translate(4px, -2px) rotate(-32deg);
+  }
+  40% {
+    transform: scale(0.99) translate(-3px, 3px) rotate(-37.5deg);
+  }
+  60% {
+    transform: scale(1.02) translate(2px, -3px) rotate(-33deg);
+  }
+  80% {
+    transform: scale(0.995) translate(-3px, 1px) rotate(-36.5deg);
+  }
+}
+
+@keyframes flowerBloomBR {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translate(40px, 40px) rotate(-25deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.05) translate(-4px, -4px) rotate(3deg);
+  }
+  85% {
+    transform: scale(0.98) translate(2px, 2px) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes flowerSwayBR {
+  0%, 100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.015) translate(-4px, 2px) rotate(-3deg);
+  }
+  40% {
+    transform: scale(0.99) translate(3px, -3px) rotate(2.5deg);
+  }
+  60% {
+    transform: scale(1.02) translate(-2px, -3px) rotate(-2deg);
+  }
+  80% {
+    transform: scale(0.995) translate(3px, 1px) rotate(1.5deg);
+  }
+}
+
+.animated-flower-tl {
+  will-change: transform, opacity;
+  animation:
+    flowerBloomTL 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    flowerSwayTL 6s ease-in-out 1.4s infinite;
+}
+
+.animated-flower-tr {
+  will-change: transform, opacity;
+  animation:
+    flowerBloomTR 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards,
+    flowerSwayTR 6.5s ease-in-out 1.55s infinite;
+}
+
+.animated-flower-bl {
+  will-change: transform, opacity;
+  animation:
+    flowerBloomBL 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    flowerSwayBL 6s ease-in-out 1.4s infinite;
+}
+
+.animated-flower-br {
+  will-change: transform, opacity;
+  animation:
+    flowerBloomBR 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards,
+    flowerSwayBR 6.5s ease-in-out 1.55s infinite;
+}
+
+/* ========================================================
+   PEACOCK DANCING ANIMATION
+   ======================================================== */
+
+@keyframes peacockDanceLeft {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1.8deg) scale(1.015);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-1.2deg) scale(0.99);
+  }
+  75% {
+    transform: translateY(-10px) rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes peacockDanceRight {
+  0%, 100% {
+    transform: scaleX(-1) translateY(-10px) rotate(2deg) scale(1.02);
+  }
+  25% {
+    transform: scaleX(-1) translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-8px) rotate(1.8deg) scale(1.015);
+  }
+  75% {
+    transform: scaleX(-1) translateY(-2px) rotate(-1.2deg) scale(0.99);
+  }
+}
+
+.animated-peacock-left {
+  will-change: transform;
+  transform-origin: bottom center;
+  animation: peacockDanceLeft 5s ease-in-out infinite;
+}
+
+.animated-peacock-right {
+  will-change: transform;
+  transform-origin: bottom center;
+  animation: peacockDanceRight 5s ease-in-out infinite;
+}
+
+@keyframes cue {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* ========================================================
+   SCRATCH CARD GENTLE WIGGLE / SHAKE (UNTIL SCRATCHED)
+   ======================================================== */
+@keyframes scratchCardShake {
+  0%, 65%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  70% {
+    transform: rotate(-1.5deg) scale(1.015);
+  }
+  75% {
+    transform: rotate(1.5deg) scale(1.02);
+  }
+  80% {
+    transform: rotate(-1.2deg) scale(1.015);
+  }
+  85% {
+    transform: rotate(1deg) scale(1.01);
+  }
+  90% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.scratch-card-shake {
+  animation: scratchCardShake 2.4s ease-in-out infinite;
+  transform-origin: center center;
+}
