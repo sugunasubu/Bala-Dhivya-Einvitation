@@ -89,10 +89,10 @@ export default function Frame04Events() {
                 <div className="event-facts flex flex-wrap justify-center items-center text-center gap-3 sm:gap-5 md:gap-8 mt-1 sm:mt-2 mb-1 w-full">
                   <span className="flex flex-col items-center text-center">
                     <b className="text-[10px] sm:text-xs md:text-[18px] tracking-[0.18em] font-extrabold text-wine uppercase mb-1">
-                      TIME
+                      DATE
                     </b>
                     <span className="text-[13px] sm:text-sm md:text-[18px] font-bold text-wine leading-relaxed">
-                      {wedding.timeStr}
+                      {wedding.dateStr}
                     </span>
                   </span>
                   <span className="flex flex-col items-center text-center">
@@ -109,9 +109,11 @@ export default function Frame04Events() {
               {/* Right Column: Scratch Card */}
               <div className="event-scratch-col flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0 relative z-10">
                 <EventScratchCard
-                  dayOfWeek={wedding.dayOfWeek}
-                  dayNumber={wedding.dayNumber}
-                  month={wedding.month}
+                  revealMode="time"
+                  timeStart={wedding.timeStart}
+                  timeEnd={wedding.timeEnd}
+                  timeLabel={wedding.timeLabel}
+                  timeSub={wedding.timeSub}
                   theme="sandal"
                 />
               </div>
@@ -171,7 +173,7 @@ export default function Frame04Events() {
                       DATE
                     </b>
                     <span className="text-[13px] sm:text-sm md:text-[18px] font-bold text-wine leading-relaxed">
-                      {reception.timeStr}
+                      {reception.dateStr}
                     </span>
                   </span>
                   <span className="flex flex-col items-center text-center">
@@ -188,9 +190,11 @@ export default function Frame04Events() {
               {/* Right Column: Scratch Card */}
               <div className="event-scratch-col flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0 relative z-10">
                 <EventScratchCard
-                  dayOfWeek={reception.dayOfWeek}
-                  dayNumber={reception.dayNumber}
-                  month={reception.month}
+                  revealMode="time"
+                  timeStart={reception.timeStart}
+                  timeEnd={reception.timeEnd}
+                  timeLabel={reception.timeLabel}
+                  timeSub={reception.timeSub}
                   theme="pink"
                 />
               </div>

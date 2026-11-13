@@ -1,10 +1,15 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 
 export default function EventScratchCard({
-  dayOfWeek = "THU",
-  dayNumber = "19",
+  revealMode = "time", // "time" | "date"
+  timeStart = "4:30 AM",
+  timeEnd = "6:30 AM",
+  timeLabel = "MUHURTHAM",
+  timeSub = "BRAHMA MUHURTHAM",
+  dayOfWeek = "FRI",
+  dayNumber = "20",
   month = "NOV",
-  theme = "gold", // "gold" | "rose"
+  theme = "gold", // "gold" | "rose" | "sandal" | "pink"
 }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
@@ -12,7 +17,7 @@ export default function EventScratchCard({
   const [isScratching, setIsScratching] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
-  const isSandal = theme === "sandal" || dayNumber === "20";
+  const isSandal = theme === "sandal" || theme === "gold" || dayNumber === "20";
 
   // Initialize and paint scratch foil canvas
   const initCanvas = useCallback(() => {
@@ -209,47 +214,116 @@ export default function EventScratchCard({
             : "shadow-[0_6px_18px_rgba(72,40,61,0.1)]"
         }`}
       >
-        {/* UNDERNEATH LAYER: The Revealed Date (Glows ONLY AFTER Scratch) */}
+        {/* UNDERNEATH LAYER: The Revealed Time or Date (Glows ONLY AFTER Scratch) */}
         <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center pointer-events-none">
-          <span
-            className={`text-[0.62rem] md:text-[0.7rem] tracking-[0.24em] font-extrabold uppercase transition-all duration-500 ${
-              isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
-            } ${
-              isRevealed
-                ? isSandal
-                  ? "[text-shadow:0_0_10px_rgba(218,165,32,0.7),0_0_20px_rgba(235,185,60,0.4)]"
-                  : "[text-shadow:0_0_10px_rgba(244,114,182,0.8),0_0_20px_rgba(244,114,182,0.4)]"
-                : ""
-            }`}
-          >
-            {dayOfWeek}
-          </span>
+          {revealMode === "time" ? (
+            <>
+              {/* Category / Muhurtham Label */}
+              <span
+                className={`text-[0.62rem] sm:text-[0.68rem] md:text-[0.74rem] tracking-[0.2em] font-extrabold uppercase transition-all duration-500 ${
+                  isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
+                } ${
+                  isRevealed
+                    ? isSandal
+                      ? "[text-shadow:0_0_10px_rgba(218,165,32,0.7),0_0_20px_rgba(235,185,60,0.4)]"
+                      : "[text-shadow:0_0_10px_rgba(244,114,182,0.8),0_0_20px_rgba(244,114,182,0.4)]"
+                    : ""
+                }`}
+              >
+                {timeLabel}
+              </span>
 
-          <strong
-            className={`font-serif font-bold text-4xl sm:text-[2.75rem] md:text-[3.2rem] leading-none my-1 tracking-tight text-wine transition-all duration-500 ${
-              isRevealed
-                ? isSandal
-                  ? "[text-shadow:0_0_12px_rgba(218,165,32,0.65),0_0_24px_rgba(235,185,60,0.45),0_0_2px_rgba(255,255,255,0.7)]"
-                  : "[text-shadow:0_0_12px_rgba(236,72,153,0.6),0_0_24px_rgba(244,114,182,0.45),0_0_2px_rgba(255,255,255,0.7)]"
-                : ""
-            }`}
-          >
-            {dayNumber}
-          </strong>
+              {/* Main Timings */}
+              <div className="flex flex-col items-center justify-center my-0.5 sm:my-1 leading-none">
+                <strong
+                  className={`font-serif font-bold text-[1.28rem] sm:text-[1.45rem] md:text-[1.62rem] leading-tight tracking-tight text-wine transition-all duration-500 ${
+                    isRevealed
+                      ? isSandal
+                        ? "[text-shadow:0_0_12px_rgba(218,165,32,0.65),0_0_24px_rgba(235,185,60,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                        : "[text-shadow:0_0_12px_rgba(236,72,153,0.6),0_0_24px_rgba(244,114,182,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                      : ""
+                  }`}
+                >
+                  {timeStart}
+                </strong>
+                {timeEnd && (
+                  <>
+                    <span
+                      className={`text-[0.52rem] sm:text-[0.56rem] tracking-[0.18em] font-extrabold uppercase my-0.5 ${
+                        isSandal ? "text-[#8C5E28]/80" : "text-[#A83256]/80"
+                      }`}
+                    >
+                      {timeEnd === "ONWARDS" ? "" : "TO"}
+                    </span>
+                    <strong
+                      className={`font-serif font-bold text-[1.28rem] sm:text-[1.45rem] md:text-[1.62rem] leading-tight tracking-tight text-wine transition-all duration-500 ${
+                        isRevealed
+                          ? isSandal
+                            ? "[text-shadow:0_0_12px_rgba(218,165,32,0.65),0_0_24px_rgba(235,185,60,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                            : "[text-shadow:0_0_12px_rgba(236,72,153,0.6),0_0_24px_rgba(244,114,182,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                          : ""
+                      }`}
+                    >
+                      {timeEnd}
+                    </strong>
+                  </>
+                )}
+              </div>
 
-          <span
-            className={`text-[0.62rem] md:text-[0.7rem] tracking-[0.24em] font-extrabold uppercase transition-all duration-500 ${
-              isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
-            } ${
-              isRevealed
-                ? isSandal
-                  ? "[text-shadow:0_0_10px_rgba(218,165,32,0.7),0_0_20px_rgba(235,185,60,0.4)]"
-                  : "[text-shadow:0_0_10px_rgba(244,114,182,0.8),0_0_20px_rgba(244,114,182,0.4)]"
-                : ""
-            }`}
-          >
-            {month}
-          </span>
+              {/* Sub-label */}
+              {timeSub && (
+                <span
+                  className={`text-[0.52rem] sm:text-[0.56rem] md:text-[0.62rem] tracking-[0.14em] font-extrabold uppercase transition-all duration-500 mt-0.5 ${
+                    isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
+                  }`}
+                >
+                  {timeSub}
+                </span>
+              )}
+            </>
+          ) : (
+            <>
+              <span
+                className={`text-[0.62rem] md:text-[0.7rem] tracking-[0.24em] font-extrabold uppercase transition-all duration-500 ${
+                  isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
+                } ${
+                  isRevealed
+                    ? isSandal
+                      ? "[text-shadow:0_0_10px_rgba(218,165,32,0.7),0_0_20px_rgba(235,185,60,0.4)]"
+                      : "[text-shadow:0_0_10px_rgba(244,114,182,0.8),0_0_20px_rgba(244,114,182,0.4)]"
+                    : ""
+                }`}
+              >
+                {dayOfWeek}
+              </span>
+
+              <strong
+                className={`font-serif font-bold text-4xl sm:text-[2.75rem] md:text-[3.2rem] leading-none my-1 tracking-tight text-wine transition-all duration-500 ${
+                  isRevealed
+                    ? isSandal
+                      ? "[text-shadow:0_0_12px_rgba(218,165,32,0.65),0_0_24px_rgba(235,185,60,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                      : "[text-shadow:0_0_12px_rgba(236,72,153,0.6),0_0_24px_rgba(244,114,182,0.45),0_0_2px_rgba(255,255,255,0.7)]"
+                    : ""
+                }`}
+              >
+                {dayNumber}
+              </strong>
+
+              <span
+                className={`text-[0.62rem] md:text-[0.7rem] tracking-[0.24em] font-extrabold uppercase transition-all duration-500 ${
+                  isSandal ? "text-[#8C5E28]" : "text-[#A83256]"
+                } ${
+                  isRevealed
+                    ? isSandal
+                      ? "[text-shadow:0_0_10px_rgba(218,165,32,0.7),0_0_20px_rgba(235,185,60,0.4)]"
+                      : "[text-shadow:0_0_10px_rgba(244,114,182,0.8),0_0_20px_rgba(244,114,182,0.4)]"
+                    : ""
+                }`}
+              >
+                {month}
+              </span>
+            </>
+          )}
 
           {/* Badge Ornament (Glows ONLY AFTER Scratch) */}
           <div
@@ -284,8 +358,8 @@ export default function EventScratchCard({
             isRevealed ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           style={{ touchAction: "none" }}
-          aria-label="Scratch card to reveal event date"
-          title="Scratch or tap to reveal date"
+          aria-label={revealMode === "time" ? "Scratch card to reveal event timing" : "Scratch card to reveal event date"}
+          title={revealMode === "time" ? "Scratch or tap to reveal timing" : "Scratch or tap to reveal date"}
         />
       </div>
 
@@ -303,7 +377,13 @@ export default function EventScratchCard({
               : "text-rose-deep/75 hover:text-wine"
         }`}
       >
-        {isRevealed ? "✦ Date Revealed" : "✦ Scratch to reveal"}
+        {isRevealed
+          ? revealMode === "time"
+            ? "✦ Time Revealed"
+            : "✦ Date Revealed"
+          : revealMode === "time"
+            ? "✦ Scratch to reveal time"
+            : "✦ Scratch to reveal"}
       </button>
     </div>
   );

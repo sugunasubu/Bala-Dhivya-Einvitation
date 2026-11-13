@@ -157,7 +157,7 @@ export default function Frame03Couple() {
               A day to
               <br />
               <em className="font-script not-italic text-[1.15em] text-rose-deep font-normal">
-                remember
+                Remember
               </em>
             </h2>
 
