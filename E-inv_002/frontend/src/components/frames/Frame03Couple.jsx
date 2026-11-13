@@ -102,7 +102,7 @@ export default function Frame03Couple() {
 
           {/* Invitation Lead Paragraph */}
           <p className="font-serif italic text-lg sm:text-xl font-bold text-wine/85 max-w-[400px] mx-auto my-2.5 leading-[1.65] reveal-item reveal-delay-5">
-            You are warmly invited to join Bala Murugan and Dhivya
+            You are warmly invited to join Balamurugan and Dhivya
             <br />
             as they begin their life together in Trichy.
           </p>
@@ -163,7 +163,7 @@ export default function Frame03Couple() {
 
             {/* 3. Lead Paragraph */}
             <p className="section-lead m-0 mb-6 text-muted font-serif font-medium text-[1.18rem] leading-[1.45] max-w-[520px] reveal-item reveal-delay-4">
-              You are warmly invited to join Bala Murugan and Dhivya as they begin their life together in Trichy.
+              You are warmly invited to join Balamurugan and Dhivya as they begin their life together in Trichy.
             </p>
 
             {/* 4. Groom and Bride Name Card */}

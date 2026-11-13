@@ -1,6 +1,6 @@
-# Bala Murugan & Dhivya Wedding Invitation — React + Tailwind CSS
+# Balamurugan & Dhivya Wedding Invitation — React + Tailwind CSS
 
-Component-based React application using Tailwind CSS for Bala Murugan & Dhivya's wedding invitation. The original layout, visual styling, typography, photographs, and interactive behaviors are preserved with pure React state and hooks.
+Component-based React application using Tailwind CSS for Balamurugan & Dhivya's wedding invitation. The original layout, visual styling, typography, photographs, and interactive behaviors are preserved with pure React state and hooks.
 
 ## Architecture
 

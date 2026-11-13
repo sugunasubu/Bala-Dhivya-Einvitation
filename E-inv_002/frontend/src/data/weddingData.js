@@ -1,8 +1,8 @@
 export const weddingData = {
   couple: {
     groom: {
-      name: "Bala Murugan",
-      formalName: "Bala Murugan",
+      name: "Balamurugan",
+      formalName: "Balamurugan",
       degree: "DME",
       contacts: [],
     },
@@ -78,7 +78,7 @@ export const weddingData = {
     bottomNote: "WEDDING & RECEPTION · SAMAYAPURAM, TRICHY",
   },
   share: {
-    title: "Bala Murugan & Dhivya — Wedding Invitation",
-    text: "You are invited to celebrate the Wedding & Reception of Bala Murugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram, Trichy on Friday, 20 November 2026.",
+    title: "Balamurugan & Dhivya — Wedding Invitation",
+    text: "You are invited to celebrate the Wedding & Reception of Balamurugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram, Trichy on Friday, 20 November 2026.",
   },
 };

@@ -1,6 +1,6 @@
-# Bala Murugan & Dhivya — Wedding E-Invitation
+# Balamurugan & Dhivya — Wedding E-Invitation
 
-An elegant, interactive digital wedding invitation built with React 18, Tailwind CSS, and Vite for **Bala Murugan & Dhivya**.
+An elegant, interactive digital wedding invitation built with React 18, Tailwind CSS, and Vite for **Balamurugan & Dhivya**.
 
 ## Wedding Celebrations
 

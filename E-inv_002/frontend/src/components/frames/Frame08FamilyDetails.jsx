@@ -43,7 +43,7 @@ export default function Frame08FamilyDetails() {
             <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center p-2 sm:p-3 md:p-5">
               <img
                 src="/assets/images/mobile/bd_log.webp"
-                alt="Bala Murugan & Dhivya Monogram"
+                alt="Balamurugan & Dhivya Monogram"
                 loading="lazy"
                 className="w-full h-full object-contain drop-shadow-sm"
               />

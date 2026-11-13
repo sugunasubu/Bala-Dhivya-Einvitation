@@ -172,7 +172,7 @@ export default function Frame01Opening({ onOpen }) {
             }`}
           style={{ transitionDelay: "760ms" }}
         >
-          <span className="whitespace-nowrap">Bala Murugan</span> <i className="font-script font-normal text-[1.3em] text-gold mx-1.5 sm:mx-2">&amp;</i> <span className="whitespace-nowrap">Dhivya</span>
+          <span className="whitespace-nowrap">Balamurugan</span> <i className="font-script font-normal text-[1.3em] text-gold mx-1.5 sm:mx-2">&amp;</i> <span className="whitespace-nowrap">Dhivya</span>
         </p>
 
         {/* 7. Date & Location */}

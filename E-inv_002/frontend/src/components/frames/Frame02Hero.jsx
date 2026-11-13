@@ -103,7 +103,7 @@ export default function Frame02Hero({ isGateOpen = false }) {
             <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-[70px] md:h-[70px] rounded-full overflow-hidden flex items-center justify-center">
               <img
                 src="/assets/images/mobile/bd_log.webp"
-                alt="Bala Murugan & Dhivya Monogram"
+                alt="Balamurugan & Dhivya Monogram"
                 loading="eager"
                 className="w-full h-full object-contain"
               />
@@ -128,7 +128,7 @@ export default function Frame02Hero({ isGateOpen = false }) {
             }`}
           style={{ transitionDelay: "640ms" }}
         >
-          <span className="whitespace-nowrap">Bala Murugan</span>
+          <span className="whitespace-nowrap">Balamurugan</span>
           <em className="font-script font-normal text-[0.85em] md:text-[0.72em] text-rose-deep tracking-normal pt-0.5 sm:pt-1 md:pt-2">
             &amp;
           </em>

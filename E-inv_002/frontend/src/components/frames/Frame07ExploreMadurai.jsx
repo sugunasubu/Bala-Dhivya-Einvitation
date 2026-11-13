@@ -27,13 +27,13 @@ export default function Frame07ExploreMadurai() {
 
   const handleShareInvite = async () => {
     const inviteText =
-      "You are invited to celebrate the Wedding & Reception of Bala Murugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram on Friday, 20 November 2026.";
+      "You are invited to celebrate the Wedding & Reception of Balamurugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram on Friday, 20 November 2026.";
     const shareUrl = window.location.href.split("#")[0];
 
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Bala Murugan & Dhivya — Wedding Invitation",
+          title: "Balamurugan & Dhivya — Wedding Invitation",
           text: inviteText,
           url: shareUrl,
         });
@@ -70,7 +70,7 @@ export default function Frame07ExploreMadurai() {
 
   const handleWhatsAppShare = () => {
     const inviteText =
-      "You are invited to celebrate the Wedding & Reception of Bala Murugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram on Friday, 20 November 2026.";
+      "You are invited to celebrate the Wedding & Reception of Balamurugan & Dhivya at Aathi Maariamman Temple and Hotel S President, Samayapuram on Friday, 20 November 2026.";
     const shareUrl = window.location.href.split("#")[0];
     const text = `${inviteText} ${shareUrl}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
